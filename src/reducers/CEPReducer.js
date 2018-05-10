@@ -1,3 +1,5 @@
+import { CEP_CHANGE } from '../actions/actionTypes';
+
 const INITIAL_STATE = {
     cep: '',
     logradouro: '',
@@ -11,5 +13,11 @@ const INITIAL_STATE = {
 }
 
 export const CEPReducer = (state = INITIAL_STATE, action) => {
-    return state;
+    switch(action.type) {
+        case CEP_CHANGE: {
+            return { ...state, cep: action.payload }
+        }
+        default:
+            return state;
+    }
 }

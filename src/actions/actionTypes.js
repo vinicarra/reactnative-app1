@@ -1,2 +1,4 @@
 export const CEP_CHANGE = 'CEP_CHANGE';
 export const REQUEST_CEP = 'REQUEST_CEP';
+export const REQUEST_CEP_SUCCESS = 'REQUEST_CEP_SUCCESS';
+export const REQUEST_CEP_ERROR = 'REQUEST_CEP_ERROR';

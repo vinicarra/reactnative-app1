@@ -11,7 +11,7 @@ import Routes from './src/Routes';
 export default class App extends Component {
   render() {
     return (
-      <Provider store={ createStore(Reducers, applyMiddleware(thunk)) }>
+      <Provider store={ createStore(Reducers, {}, applyMiddleware(thunk)) }>
         <Routes />
       </Provider>
     );

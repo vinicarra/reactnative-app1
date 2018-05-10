@@ -7,15 +7,36 @@ export const changeCep = (cep) => {
     }
 }
 
+const searchSuccess = (responseJson, dispatch) => {
+    dispatch(
+        {
+            type: Actions.REQUEST_CEP_SUCCESS,
+            payload: responseJson
+        }
+    );
+}
+
+const searchError = (error, dispatch) => {
+    dispatch(
+        {
+            type: Actions.REQUEST_CEP_ERROR,
+            payload: error
+        }
+    );
+}
+
 export const searchCep = (cep) => {
-    fetch('https://viacep.com.br/ws/' + cep + '/json/').then(response => {
-        response.json().then(responseJson => {
-            alert(responseJson.localidade);
-        });
-    }).catch(error => {
-        alert(error);
-    });
-    return {
-        type: 'teste'
+    return dispatch => {
+        if(cep.length == 8) {
+            fetch('https://viacep.com.br/ws/' + cep + '/json/').then(response => {
+                response.json().then(responseJson => {
+                    searchSuccess(responseJson, dispatch);
+                });
+            }).catch(error => {
+                searchError(error, dispatch);
+            });
+        }
+        else
+            searchError("CEP não encontrado", dispatch);
     }
 }

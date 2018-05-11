@@ -33,7 +33,7 @@ export const searchCep = (cep) => {
                     searchSuccess(responseJson, dispatch);
                 });
             }).catch(error => {
-                searchError(error, dispatch);
+                searchError("CEP não encontrado", dispatch);
             });
         }
         else

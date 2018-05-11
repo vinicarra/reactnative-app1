@@ -9,7 +9,8 @@ const INITIAL_STATE = {
     uf: '',
     unidade: '',
     ibge: '',
-    gia: ''
+    gia: '',
+    error: ''
 }
 
 export const CEPReducer = (state = INITIAL_STATE, action) => {
